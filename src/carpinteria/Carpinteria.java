@@ -1,7 +1,7 @@
 package carpinteria;
 /**
  *
- * @author 
+ * @author RadW
  */
 public interface Carpinteria {
     
