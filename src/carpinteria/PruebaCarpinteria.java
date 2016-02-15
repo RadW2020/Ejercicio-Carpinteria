@@ -1,5 +1,9 @@
 package carpinteria;
 
+import static carpinteria.Busca.Busca;
+import static carpinteria.Muestra.*;
+import static carpinteria.Pago_Mayor.*;
+
 /**
  * @author 
  */
@@ -68,99 +72,7 @@ public class PruebaCarpinteria{
                 Busca(vector, 5) + " €");
         }catch(RuntimeException e){
             System.err.println("debes introducir un número entero para el método Busca");
-        } 
-        
-
-        
-    }
-    
-    /**
-     * Coste de la mano de obra de cada uno de las montajes o 
-     * Trabajos guardados en el vector
-     * @param vector 
-     */
-    public static void Muestra (Carpinteria [] vector){
-        System.out.println("Coste de mano de obra");
-        for(Carpinteria cosa : vector){
-            System.out.printf( "%-10S  %2.1f €\n" , 
-                    cosa.getClass().getSimpleName(),
-                    cosa.paga_trabajador());
         }
-    }
-    /**
-     * Método que busca el el array de interfaces cual ha sido
-     * el mayor pago a un trabajador por un montaje o fabricación
-     * @param vector
-     * @return 
-     */
-    public static double Pago_Mayor (Carpinteria [] vector){
-        double temp = 0;
-        for(Carpinteria cosa :  vector){
-            if (cosa.paga_trabajador() > temp){
-                temp = cosa.paga_trabajador();
-            }
-        }
-        return temp;
-    }
-    /**
-     * Devuelve el coste de fabricación de un producto dado
-     * su numero id. Si el id está fuera de rango devuelve -1
-     * 
-     * @param vector
-     * @param id
-     * @return el coste de fabricación del producto
-     */
-    public static double Busca (Carpinteria [] vector, int id){
-      
-        double sol = -1;
-        for(Carpinteria cosa : vector){
-            if (cosa instanceof Mesa){
-                Mesa esMesa = (Mesa) cosa; //Casting
-                if (esMesa.getId_producto() == id){
-                    sol = esMesa.Coste_Fabricacion();
-                }
-            }else if (cosa instanceof Estanteria){
-                Estanteria esUnaEstanteria = (Estanteria) cosa; //Casting
-                if (esUnaEstanteria.getId_producto() == id){
-                    sol = esUnaEstanteria.Coste_Fabricacion();
-                }
-            }else if (cosa instanceof Armario){
-                Armario esArmario = (Armario) cosa; //Casting
-                if (esArmario.getId_producto() == id){
-                    sol = esArmario.Coste_Fabricacion();
-                }
-            } else {  sol = -1; }
-        }
-        return sol;
     }
 
-    
-    
 }
-
-/*
-public static double Busca (Carpinteria [] vector, int id){
-        double sol = -1;
-        for(Carpinteria cosa : vector){
-            if (cosa instanceof Mesa){
-                Mesa esMesa = (Mesa) cosa;
-                if (esMesa.getId_producto() == id){
-                    sol = esMesa.Coste_Fabricacion();
-                }
-            }else if (cosa instanceof Estanteria){
-                Estanteria esUnaEstanteria = (Estanteria) cosa;
-                if (esUnaEstanteria.getId_producto() == id){
-                    sol = esUnaEstanteria.Coste_Fabricacion();
-                }
-            }else if (cosa instanceof Armario){
-                Armario esArmario = (Armario) cosa;
-                if (esArmario.id_producto == id){
-                    sol = esArmario.Coste_Fabricacion();
-                }
-            } else {
-                sol = -1;
-                }
-        }
-        return sol;
-    }
-*/
