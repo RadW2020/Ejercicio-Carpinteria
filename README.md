@@ -1,2 +1,2 @@
-# Ejercicios-Carpinteria
-Ejercicios 1º DAM IES Al Andalus
+# Ejercicio-Carpinteria
+Ejercicio POO - Desarrollo de Aplicaciones Multiplataforma - IES Al Andalus
